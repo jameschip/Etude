@@ -183,6 +183,6 @@ function Lisp (lib = {}) {
   }
 
   this.run = async function (input) {
-    return interpret(this.parse(`((def theme (get-theme))(def frame (get-frame))(${input}))`))
+    return interpret(this.parse(`((${input}))`))
   }
 }

@@ -10,6 +10,9 @@
   "author": "James Henderson",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^6.0.1"
+    "electron": "^6.0.2"
+  },
+  "dependencies": {
+    "tone": "^13.4.9"
   }
 }
