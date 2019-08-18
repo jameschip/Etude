@@ -1,10 +1,12 @@
 'use strict'
 
+
 function Lisp (lib = {}) {
+  
   const path = require('path')
   const fs = require('fs')
 
-  const TYPES = { identifier: 0, number: 1, string: 2, bool: 3, symbol: 4 }
+  const TYPES = { identifier: 0, number: 1, string: 2, bool: 3, symbol: 4}
 
   const Context = function (scope, parent) {
     this.scope = scope
