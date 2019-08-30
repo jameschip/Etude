@@ -10,16 +10,20 @@ function Library(lapel) {
   // Synth
 
   this.synth = (wav) => {
-    const syn = new tone.Synth({
-      oscillator: {
-        type: wav
-      }
-    }).toMaster()
+    const syn = new Synth(wav)
     return syn
   }
 
-  this.note = (synth, note, length) => {
-    synth.triggerAttackRelease(note, length)
+  this.note = (synth, note) => {
+    synth.playNote(note)
+  }
+
+  this.setl = (synth, length) => {
+    synth.setNoteLength(length)
+  }
+
+  this.play = () => {
+    tone.Transport.start();
   }
 
   this.setadsr = (synth, att, dec, sus, rel) => {
@@ -32,13 +36,11 @@ function Library(lapel) {
   this.setad = (synth, att, dec) => {
     synth.envelope.attack = att
     synth.envelope.decay = dec
-    synth.envelope.sustain = 0
-    synth.envelope.release = 0
   }
 
   // note convert
 
-  this.mton = (midi) => {
+  this.mton = (midi) => { // midi note to note name
     let oct = Math.floor(midi / 12)
     var note = ""
     switch (midi % 12) {
@@ -67,8 +69,13 @@ function Library(lapel) {
       case 11: note = "b";
         break;
     }
-    console.log(note + oct)
     return note + oct
+  }
+
+  // Time
+
+  this.wait = (s, fn) => {
+    setTimeout(fn , s * 1000)
   }
 
   // str
