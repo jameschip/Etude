@@ -18,6 +18,10 @@ function Library(lapel) {
     synth.playNote(note)
   }
 
+  this.snote = (synth, note, time) => {
+    synth.snote(note, time)
+  }
+
   this.setl = (synth, length) => {
     synth.setNoteLength(length)
   }
@@ -38,7 +42,14 @@ function Library(lapel) {
     synth.envelope.decay = dec
   }
 
+  this.repeat = (fn, time) => {
+    tone.Transport.scheduleRepeat(fn, time)
+  }
   // note convert
+
+  this.rnote = () => {
+    return this.mton( Math.floor((Math.random() * 128) ))
+  }
 
   this.mton = (midi) => { // midi note to note name
     let oct = Math.floor(midi / 12)

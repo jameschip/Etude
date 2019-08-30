@@ -2,7 +2,7 @@
 
 const Tone = require('tone')
 
-class Lapel {
+class Etude {
 
     constructor() {
         this.code = document.getElementById("input-area")
@@ -10,11 +10,7 @@ class Lapel {
         this.lisp = new Lisp(new Library(this))
     }
 
-    /**
-     * Run the LISP interpreter on the input
-     */
     run() {
-        // console.log(this.code.value)
         this.lisp.run(this.code.value)
     }
 

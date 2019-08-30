@@ -20,15 +20,15 @@ function Synth(shape) {
     }
 
     this.setADSR = (attack, decay, sustain, release) => {
-        synth.envelope.attack = attack
-        synth.envelope.decay = decay
-        synth.envelope.sustain = sustain
-        synth.envelope.release = release
+        this.synth.envelope.attack = attack
+        this.synth.envelope.decay = decay
+        this.synth.envelope.sustain = sustain
+        this.synth.envelope.release = release
     }
 
-    this.scheduleNote = (note, time) => {
-        Tone.Transport.schedule(function(t) {
-            synth.triggerAttackRelease(note, this.length, t)
+    this.snote = (note, time) => {
+        Tone.Transport.schedule((t) => {
+            this.synth.triggerAttackRelease(note, this.length, t)
         }, "+" + time)
     }
 

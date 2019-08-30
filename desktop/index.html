@@ -10,14 +10,11 @@
         <script type="text/javascript" src="lib/controller.js"></script>
         <script type="text/javascript" src="sources/synth.js"></script>
         <script type="text/javascript" src="sources/library.js"></script>
-        <script type="text/javascript" src="sources/lapel.js"></script>
+        <script type="text/javascript" src="sources/etude.js"></script>
     </head>
     <body>
         <div class="editor-div">
             <textarea id="input-area";></textarea>    
-        </div>
-            
-        <div class="editor-div">
         </div>
         <script>
             const { Menu, MenuItem } = require('electron')
@@ -26,8 +23,8 @@
             theme.install(document.body)
             theme.start()
             
-            let lapel = new Lapel()
-            controller = new Controller(lapel)
+            let etude = new Etude()
+            controller = new Controller(etude)
             controller.start();
         </script>
     </body>
