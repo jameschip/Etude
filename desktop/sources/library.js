@@ -9,20 +9,34 @@ function Library(lapel) {
 
   // Synth
 
-  this.synth = (wav) => {
+  this.synth = (wav) => {  // Create a synth object
     const syn = new Synth(wav)
     return syn
   }
 
-  this.note = (synth, note) => {
+  // sequence
+  
+  this.sequence = (...notes) => {
+    return new Sequence(notes)
+  }
+
+  this.advance = (seq) => {
+    return seq.advance()
+  }
+
+  this.retreat = (seq) => {
+    return seq.retreat()
+  }
+
+  this.note = (synth, note) => { // Play a note
     synth.playNote(note)
   }
 
-  this.snote = (synth, note, time) => {
+  this.snote = (synth, note, time) => { // Schedule a note to play later
     synth.snote(note, time)
   }
 
-  this.setl = (synth, length) => {
+  this.setl = (synth, length) => { // set not length
     synth.setNoteLength(length)
   }
 
@@ -45,10 +59,11 @@ function Library(lapel) {
   this.repeat = (fn, time) => {
     tone.Transport.scheduleRepeat(fn, time)
   }
+
   // note convert
 
   this.rnote = () => {
-    return this.mton( Math.floor((Math.random() * 128) ))
+    return this.mton(Math.floor((Math.random() * 128)))
   }
 
   this.mton = (midi) => { // midi note to note name
@@ -86,7 +101,7 @@ function Library(lapel) {
   // Time
 
   this.wait = (s, fn) => {
-    setTimeout(fn , s * 1000)
+    setTimeout(fn, s * 1000)
   }
 
   // str
