@@ -29,6 +29,18 @@ function Sequence(notes) {
         return this.notes[this.possition - 1]
     }
 
+    /**
+     * returns 1 of the sequence has played the last note last frame 
+     * and 0 otherwise. Using 1 or 0 means you can count the number
+     * of times the sequence plays in yor code easily rather than just
+     * setting a flag and checking it.
+     */
+    this.ending = () => {
+        if (this.position == this.notes.length)
+         return 1
+        return 0
+    }
+
     this.reset = () => {
         this.position = 0
     }

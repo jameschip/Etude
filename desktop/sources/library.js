@@ -28,6 +28,10 @@ function Library(lapel) {
     return seq.retreat()
   }
 
+  this.isending = (seq) => {
+    return seq.ending()
+  }
+
   this.note = (synth, note) => { // Play a note
     synth.playNote(note)
   }
