@@ -15,7 +15,7 @@ A small tool for writing music in lisp.
 (play)
 ```
 ### Example t play a sequence
-
+```
 (def s1 (synth "triangle"))
 (setl s1 "16n")
 
@@ -28,4 +28,4 @@ A small tool for writing music in lisp.
 (repeat loop "16n")
 
 (play)
-
+```
